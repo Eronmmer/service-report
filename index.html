@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,167 @@
   <title>Service Report</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  
+  <div class="container col-lg-8 mt-3">
+    <h1 class="main-heading text-center">Service Report</h1>
+    <div class="card mt-3 bg-dark">
+      <button class="add-report btn btn-info col-3 mt-3 mb-3 mx-auto display-none" data-toggle="modal" data-target="#add-report-modal">Add
+        report</button>
+      <div class="card-body">
+        <h3 class="text-center display-none cumulative-header">Current cumulative report for <span
+            class="report-month"></span> <span class="report-year"></span></h3>
+        <h5 class="text-center absent-message mt-5">Hey!🙋 It seems you're not keeping record of your report presently🤷
+          Click on the "Add new month" button below to begin😁</h5>
+        <div class="report-body col-8 mx-auto mt-5 display-none">
+          <div class="hours mt-3">
+            <h5>Hours: <span class="report-span-value hours-value"></span></h5>
+          </div>
+          <div class="placements mt-3">
+            <h5>Placements: <span class="report-span-value placements-value"></span></h5>
+          </div>
+          <div class="videos mt-3">
+            <h5>Videos: <span class="report-span-value videos-value"></span></h5>
+          </div>
+          <div class="return-visits mt-3">
+            <h5>Return Visits: <span class="report-span-value return-visits-value"></span></h5>
+          </div>
+        </div>
+      </div>
+      <button class="add-new-month btn btn-danger col-3 mt-5 mb-5 mx-auto swing" data-toggle="modal"
+        data-target="#new-month-modal">Add new month</button>
+      <!-- Modal for adding a new month -->
+      <div class="modal" id="new-month-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title text-center mx-auto">Start recording for a new month!</h4>
+              <button class="close close-new-month-modal-x" type="button" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="new-month-form">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" for="month-form">Month</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" id="month-form" required>
+                      <option value="">--Please pick a Month--</option>
+                      <option value="January">January</option>
+                      <option value="February">February</option>
+                      <option value="March">March</option>
+                      <option value="April">April</option>
+                      <option value="May">May</option>
+                      <option value="June">June</option>
+                      <option value="July">July</option>
+                      <option value="August">August</option>
+                      <option value="September">September</option>
+                      <option value="October">October</option>
+                      <option value="November">November</option>
+                      <option value="December">December</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" for="year-form">Year</label>
+                  <div class="col-sm-9">
+                    <input type="number" class="form-control" id="year-form" min="1914" max="5000" required />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary">Start recording</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-danger close-new-month-modal" data-dismiss="modal">Close</button>
+              <!-- <button class="btn btn-danger" data-dismiss="modal">Submit</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal for add report -->
+      <div class="modal" id="add-report-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title text-center mx-auto">Add some record😊</h4>
+              <button class="close close-add-report-modal-x" type="button" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="update-report-form">
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label" for="date-form">Date</label>
+                  <div class="col-sm-8">
+                    <input type="date" name="date-form" id="date-form" required>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label" for="hours-form">Hours</label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control" id="hours-form" required />
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label" for="placements-form">Placements</label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control" id="placements-form" required />
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label" for="videos-form">Videos</label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control" id="videos-form" required />
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label" for="return-visits-form">Return Visits</label>
+                  <div class="col-sm-8">
+                    <input type="number" class="form-control" id="return-visits-form" required />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-danger close-add-report-modal" data-dismiss="modal">Close</button>
+              <!-- <button class="btn btn-danger" data-dismiss="modal">Submit</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="main.js"></script>
 </body>
+
 </html>

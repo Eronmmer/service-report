@@ -1,0 +1,61 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #1e2227;
+  color: white;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 300;
+}
+
+.report-span-value {
+  float: right;
+  margin-right: 20%;
+  color: rgb(142, 253, 16);
+}
+
+.swing {
+  animation: swing 2s ease;
+  animation-iteration-count: infinite;
+}
+
+.swing:hover {
+  animation: none;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.modal-dialog {
+  color: black !important;
+}
+
+@keyframes swing {
+  15% {
+    transform: translateX(5px);
+  }
+
+  30% {
+
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+
+  65% {
+
+    transform: translateX(-3px);
+  }
+
+  80% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
