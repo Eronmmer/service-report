@@ -32,6 +32,49 @@ html {
   color: black !important;
 }
 
+@media screen and (max-width: 769px) {
+  .add-new-month,
+  .add-report {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-heading {
+    font-size: 22px;
+  }
+
+  .cumulative-header {
+    font-size: 18px;
+  }
+
+  .absent-message {
+    font-size: 17px;
+  }
+
+  .add-new-month {
+    margin-top: 1rem !important;
+  }
+
+  .report-body {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .report-body h5 {
+    font-size: 16px !important;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .add-new-month,
+  .add-report {
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+}
+
 @keyframes swing {
   15% {
     transform: translateX(5px);
