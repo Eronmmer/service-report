@@ -149,7 +149,7 @@ function updateRecord() {
 
   // update local storage as well
   let reportObject = JSON.parse( localStorage.getItem( "reportValues" ) );
-  reportObject.hours = returnVisitsValue.textContent;
+  reportObject.hours = hoursValue.textContent;
   reportObject.placements = placementsValue.textContent;
   reportObject.videos = videosValue.textContent;
   reportObject.returnVisits = returnVisitsValue.textContent;
